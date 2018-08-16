@@ -3,6 +3,8 @@ const hbs = require('hbs');
 var app = express();
 //request: data you get from the client
 //response: how you handle the incoming requests with the data available to you
+hbs.registerPartials(__dirname+'/views/partials')
+
 //app.set('key', 'value'); key is the value you want to set and value is the value you want to use
 app.set('view engine','hbs');
 
