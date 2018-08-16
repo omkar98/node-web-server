@@ -8,16 +8,20 @@ app.set('view engine','hbs');
 
 app.use(express.static(__dirname+'/public'));//middleware
 app.get('/',(req,res)=>{
-  // res.send('<h1>Hey Back Again!</h1>');
-  res.send({
-    name: 'Omkar',
-    likes: ['programming','cricket'],
-    xyz: 'MGM'
+  res.render('home.hbs',{
+    pageTitle: 'Home Page',
+    pageDesc: 'This is my Home page',
+    copyright_year: new Date().getFullYear()
   });
 });
 
 app.get('/about', (req, res)=>{
-  res.render('about.hbs');
+//render function takes 2 arguments - the page to be displayed and and object having values to be passed into the page
+  res.render('about.hbs',{
+    pageTitle: 'About Us',
+    pageDesc: 'This is my about us page',
+    copyright_year: new Date().getFullYear()
+  });
 });
 
 // /bad res.send
