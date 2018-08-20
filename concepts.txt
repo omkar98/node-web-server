@@ -1,0 +1,18 @@
+Middlewares:
+A web server can be seen as a function that takes in a request and outputs a response. Middlewares are functions executed in the middle after the incoming request then produces an output which could be the final output passed or could be used by the next middleware until the cycle is completed, meaning we can have more than one middleware and they will execute in the order they are declared. middleware A below will execute before middleware B, middleware Bbefore middleware C.We can pass variable from one middleware to another.
+19-08-2018:
+Learnt Middlewares
+Created a logger system that stores user logging details in a file.
+- Functions Learnt:
+  var now = new Date().toString(); // It converts the current date to a nice user readable format
+
+20-08-2018
+- To check what kind of request was made, i.e whether a GET or POST or else request, we need to use req.method
+- To know which url the user has visited, we use req.url
+var log = `${now}: ${req.method} ${req.url}`;
+
+To store the log details in a file we use:
+first import the fs module, then use fs.appendFile('filename', 'what to write on the file', errorFunction);
+      fs.appendFile('server.log', log + '\n', (err)=>{
+        console.log('Cannot append the file');
+      });
